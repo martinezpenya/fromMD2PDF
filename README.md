@@ -1,4 +1,4 @@
-[toc]
+
 
 # Tool needed
 
@@ -74,7 +74,9 @@ This snippet will specify:
 
 # Theme
 
-I've made a special theme based on Typora's theme to match my needs. For example, numbering headers (in content and TOC), coloring notes in red, etc. You can find this theme [here](assets/david.css) (`David.css`):
+I've made a special theme based on Typora's theme to match my needs. For example, numbering headers (in content and TOC), coloring notes in red, etc. You can find this theme [here](assets/david.css) (`David.css`).
+
+To use this theme you must put it in your `Typora Theme's folder` and select it to show on preview and/or export.
 
 ```css
 :root {
