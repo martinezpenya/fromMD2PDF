@@ -1,4 +1,11 @@
 :root {
+    --main-color: rgba(128, 30, 255, 1);
+    --shadow-color : rgb(178, 80, 255);
+    --transplate-color : rgba(128, 30, 255, 0.1);
+    --dark-color : rgb(70, 18, 137);
+    --light-color : rgb(248, 242, 255);
+    --font-color : rgb(12, 12, 12);
+    /*--blockquote-color : rgba(117, 117, 117, 0.9);*/
     --side-bar-bg-color: #fafafa;
     --control-text-color: #777;
 }
@@ -49,18 +56,22 @@
 }
 
 html {
-    font-size: 16px;
+    /*font-size: 16px;*/
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: initial;
     -webkit-font-smoothing: antialiased;
 }
 
 body {
     font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
     color: rgb(51, 51, 51);
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 #write {
-    max-width: 860px;
+    max-width: 2000px;
     margin: 0 auto;
     padding: 30px;
     padding-bottom: 100px;
@@ -98,8 +109,9 @@ h6 {
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-weight: bold;
-    line-height: 1.4;
+    line-height: 1.6;
     cursor: text;
+    width: fit-content;
 }
 
 h1:hover a.anchor,
@@ -143,14 +155,16 @@ h6 code {
 
 h1 {
     font-size: 2.25em;
-    line-height: 1.2;
+    line-height: 1.6;
     border-bottom: 3px solid rgb(148, 148, 148);
+    width: fit-content;
 }
 
 h2 {
     font-size: 1.75em;
-    line-height: 1.225;
+    line-height: 1.6;
     border-bottom: 2px solid rgb(148, 148, 148);
+    width: fit-content;
 }
 
 
@@ -173,7 +187,7 @@ h2 {
 
 h3 {
     font-size: 1.5em;
-    line-height: 1.43;
+    line-height: 1.6;
 }
 
 h4 {
@@ -190,7 +204,7 @@ h6 {
 }
 
 p,
-blockquote,
+/*blockquote,*/
 ul,
 ol,
 dl,
@@ -232,15 +246,221 @@ ol:last-child {
     margin-bottom: 0;
 }
 
-blockquote {
+/*blockquote {
     border-left: 4px solid #f03a22;
     border-right: 4px solid #f03a22;
     padding: 0 15px;
     background-color: #ffecec;
+}*/
+
+/*blockquote blockquote {
+    padding-right: 0;
+}*/
+
+#write blockquote code {
+    margin: 0 2px;
+    padding: 4px 6px;
+    color: white;
+    white-space: pre-wrap;
+    background: var(--main-color);
+    border-radius: 8px;
 }
 
-blockquote blockquote {
-    padding-right: 0;
+blockquote,
+#write blockquote {
+    /*padding: 10px 10px;*/
+    font-size: var(--quote-title-font-size);
+    color: var(--blockquote-color);
+    /*border-left: 6px solid var(--main-color);*/
+
+    border-left: 4px solid #777777;
+    border-right: 4px solid #777777;
+    padding: 10px 10px;
+    /*background-color: #ffecec;*/
+    border-radius : 0.5em;
+    background: #eeeeee;
+    font-family: var(--blockquote-font);
+
+    box-shadow: 7px 7px 7px rgba(134, 136, 137, 0.8);
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+}
+
+#write blockquote span {
+/*    word-break: break-all;*/
+}
+
+#write blockquote>h1 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    border-bottom: none;
+    font-family: var(--base-font);
+/*    line-height: 25px;
+    border-left: 4px solid var(--main-color);
+    border-right: 4px solid var(--main-color);
+    padding: 10px 10px;
+    background-color: #ffecec;
+    border-radius : 0.5em;
+*/
+    counter-increment: h1 -1;
+}
+
+#write blockquote>h1::before {
+    content: "Definición";
+    background-color: var(--main-color);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+}
+
+#write blockquote>h2 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    border-bottom: none;
+    font-family: var(--base-font);
+/*    line-height: 25px;
+    border-left: 4px solid rgb(207, 210, 16);
+    border-right: 4px solid rgb(207, 210, 16);
+    padding: 0 15px;
+    background-color: #ffecec;
+    border-radius : 0.5em;
+*/
+    counter-increment: h2 -1;
+}
+
+#write blockquote>h2::before {
+    content: "Ampliación";
+    background-color: rgb(207, 210, 16);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+}
+
+#write blockquote>h3 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    border-bottom: none;
+    font-family: var(--base-font);
+/*    line-height: 25px;
+    border-left: 4px solid rgb(224, 66, 66);
+    border-right: 4px solid rgb(224, 66, 66);
+    padding: 0 15px;
+    background-color: #ffecec;
+    border-radius : 0.5em;
+*/
+    counter-increment: h3 -1;
+}
+
+#write blockquote>h3::before {
+    content: "Importante";
+    background-color: rgb(224, 66, 66);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+    float: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    vertical-align: baseline;
+    border-width: 0;
+}
+
+#write blockquote>h4 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    border-bottom: none;
+    font-family: var(--base-font);
+/*    line-height: 25px;
+    border-left: 4px solid var(--shadow-color);
+    border-right: 4px solid var(--shadow-color);
+    padding: 0 15px;
+    background-color: #ffecec;
+    border-radius : 0.5em;
+*/
+    counter-increment: h4 -1;
+}
+
+#write blockquote>h4::before {
+    content: "Ejemplo";
+    background-color: var(--shadow-color);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+    float: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    vertical-align: baseline;
+    border-width: 0;
+}
+
+#write blockquote>h5 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    border-bottom: none;
+    font-family: var(--base-font);
+/*    line-height: 25px;
+    border-left: 4px solid rgb(255, 165, 0);
+    border-right: 4px solid rgb(255, 165, 0);
+    padding: 0 15px;
+    background-color: #ffecec;
+    border-radius : 0.5em;
+*/
+    counter-increment: h5 -1;
+}
+
+#write blockquote>h5::before {
+    content: "Curiosidad";
+    background-color: rgb(255, 165, 0);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+    float: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    vertical-align: baseline;
+    border-width: 0;
+}
+
+blockquote::selection {
+background: var(--main-color);
+color: white;
+}
+
+blockquote::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+blockquote::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+#write img {
+    border:none;
+    border-radius: 1.5em !important;
+    box-shadow: 7px 7px 7px rgba(134, 136, 137, 0.8);
+    /*transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;*/
 }
 
 table {
@@ -321,7 +541,7 @@ code {
 
 @media print {
     html {
-        font-size: 13px;
+        font-size: 11px;
     }
     table,
     pre {
@@ -826,4 +1046,8 @@ h6.md-focus:before {
 .outline-h6>.outline-item>.outline-label:before {
     counter-increment: h6;
     content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "
+}
+
+svg[id^="mermaid"] {
+	height: auto !important;
 }
